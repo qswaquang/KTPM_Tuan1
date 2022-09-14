@@ -10,6 +10,11 @@ import javax.jms.MessageProducer;
 import javax.jms.Session;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 import org.apache.log4j.BasicConfigurator;
 import data.Person;
 import helper.XMLConvert;
@@ -37,15 +42,47 @@ public class QueueSender {
 //create producer
 		MessageProducer producer = session.createProducer(destination);
 //create text message
-		Message msg = session.createTextMessage("hello mesage from ActiveMQ");
-		producer.send(msg);
-		Person p = new Person(1001, "Thân Thị Đẹt", new Date());
-		String xml = new XMLConvert<Person>(p).object2XML(p);
-		msg = session.createTextMessage(xml);
-		producer.send(msg);
-//shutdown connection
-		session.close();
-		con.close();
+		
+		
+		JFrame a = new JFrame("Sender");
+
+		JButton b = new JButton("send");
+		
+		JTextField mess = new JTextField(); 
+		JLabel label = new JLabel("input name");
+		label.setBounds(40,50, 85,20);
+		b.setBounds(40,90,85,20);
+		mess.setBounds(40,70,200,20);
+		
+		a.add(label);
+		a.add(mess);
+		a.add(b);
+		a.setSize(300,300);
+		a.setLayout(null);
+		a.setVisible(true);
+		a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		b.addActionListener(e -> {
+			String xml;
+			try {
+				Message msg = session.createTextMessage("hello mesage from ActiveMQ");
+				producer.send(msg);
+				Person p = new Person(1001, mess.getText(), new Date());
+				xml = new XMLConvert<Person>(p).object2XML(p);
+				msg = session.createTextMessage(xml);
+				producer.send(msg);
+		//shutdown connection
+				session.close();
+				con.close();
+				
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+		});
+		
+		
 		System.out.println("Finished...");
 	}
 }

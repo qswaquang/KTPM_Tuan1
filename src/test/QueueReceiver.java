@@ -12,6 +12,9 @@ import javax.jms.Session;
 import javax.jms.TextMessage;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+
 import org.apache.log4j.BasicConfigurator;
 
 public class QueueReceiver {
@@ -40,6 +43,21 @@ public class QueueReceiver {
 //blocked-method for receiving message - sync
 //receiver.receive();
 //Cho receiver lắng nghe trên queue, chừng có message thì notify - async
+		
+		
+		
+		JFrame a = new JFrame("Receiver");
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(40,50, 200,100);
+		
+		a.add(textArea);
+		textArea.setText("asdasd");
+		a.setSize(300,300);
+		a.setLayout(null);
+		a.setVisible(true);
+		a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		System.out.println("Tý was listened on queue...");
 		receiver.setMessageListener(new MessageListener() {
 			@Override
@@ -50,6 +68,7 @@ public class QueueReceiver {
 						TextMessage tm = (TextMessage) msg;
 						String txt = tm.getText();
 						System.out.println("Nhận được " + txt);
+						textArea.setText("asdsd" +txt);
 						msg.acknowledge();// gửi tín hiệu ack
 					} else if (msg instanceof ObjectMessage) {
 						ObjectMessage om = (ObjectMessage) msg;
