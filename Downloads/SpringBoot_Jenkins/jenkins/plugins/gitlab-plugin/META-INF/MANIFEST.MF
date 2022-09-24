@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Hudson-Version: 2.289.3
+Plugin-Dependencies: caffeine-api:2.9.3-65.v6a_47d0f4d1fe,javax-activa
+ tion-api:1.2.0-3,jaxb:2.3.6-1,jersey2-api:2.36-2,workflow-job:1145.v7
+ f2433caa07f,workflow-step-api:625.vd896b_f445a_f8,apache-httpcomponen
+ ts-client-4-api:4.5.13-1.0,credentials:2.6.1.1,display-url-api:2.3.5,
+ git-client:3.11.0,git:4.11.3,jackson2-api:2.13.3-285.vc03c0256d517,ma
+ trix-project:771.v574584b_39e60,plain-credentials:1.8;resolution:=opt
+ ional,scm-api:608.vfa_f971c5a_a_e9,ssh-credentials:277.v95c2fec1c047;
+ resolution:=optional
+Implementation-Title: GitLab Plugin
+Long-Name: GitLab Plugin
+Implementation-Version: 1.5.35
+Group-Id: org.jenkins-ci.plugins
+Minimum-Java-Version: 1.8
+Plugin-License-Name: GPL v2.0 License
+Specification-Title: GitLab Plugin
+Plugin-ScmUrl: https://github.com/jenkinsci/gitlab-plugin
+Plugin-Version: 1.5.35
+Jenkins-Version: 2.289.3
+Url: https://github.com/jenkinsci/gitlab-plugin
+Short-Name: gitlab-plugin
+Plugin-License-Url: http://www.gnu.org/licenses/old-licenses/gpl-2.0-s
+ tandalone.html
+Compatible-Since-Version: 1.4.0
+Plugin-Developers: Marky Jackson:markyjackson-taulia:marky.r.jackson@g
+ mail.com
+Build-Jdk-Spec: 1.8
+Created-By: Maven Archiver 3.5.2
+Specification-Version: 1.5
+

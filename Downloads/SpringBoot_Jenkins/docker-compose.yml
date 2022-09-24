@@ -1,0 +1,9 @@
+version: '3'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts-jdk11
+    container_name: jenkins
+    ports: 
+      - "4000:8080"
+    volumes:
+      - "./jenkins:/var/jenkins_home"
